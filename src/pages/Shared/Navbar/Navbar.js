@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../images/android-chrome-192x192.png'
-import logo1 from '../../../images/favicon.ico'
+import logo from '../../../images/android-chrome-192x192.png';
 
 const Navbar = () => {
     const navItems = <>
@@ -40,7 +39,7 @@ const Navbar = () => {
 
                 <Link className='flex flex-row-reverse'>
                     <img className='w-32 h-16' src={logo} alt="" />
-                    <img className='w-20 h-16 rounded-full mx-2' src={logo1} alt="" />
+                    <img className='w-20 h-16 rounded-full mx-2' src="https://img.freepik.com/free-vector/modern-blue-urban-adventure-suv-vehicle-illustration_1344-205.jpg?w=2000" alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
