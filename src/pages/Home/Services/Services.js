@@ -5,7 +5,7 @@ const Services = () => {
         <div>
             <h2 className='text-5xl font-bold text-center mt-5'>Our special Services</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6'>
-                <div className="card bg-base-100 image-full">
+                <div className="card sm:w-80 md:w-auto bg-base-100 image-full">
                     <figure><img src="https://media.istockphoto.com/id/1347150429/photo/professional-mechanic-working-on-the-engine-of-the-car-in-the-garage.jpg?s=612x612&w=0&k=20&c=5zlDGgLNNaWsp_jq_L1AsGT85wrzpdl3kVH-75S-zTU=" alt="" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Car Repairing</h2>
@@ -15,7 +15,7 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card bg-base-100 image-full">
+                <div className="card sm:w-80 md:w-auto bg-base-100 image-full">
                     <figure><img src="https://media.istockphoto.com/id/1310978741/photo/water-under-pressure-in-a-self-service-car-wash.jpg?b=1&s=170667a&w=0&k=20&c=CcsQjCiYzhFd8hwuTMzgBTMRgJuZdUMjxVNwTPv8uQI=" alt="" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Car Wash</h2>
@@ -25,7 +25,7 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card bg-base-100 image-full">
+                <div className="card sm:w-80 md:w-auto bg-base-100 image-full">
                     <figure><img src="https://media.istockphoto.com/id/1212230930/photo/car-engine-parts.jpg?b=1&s=170667a&w=0&k=20&c=uRznZNyOaDxrPakXNjogT__dnxmuwsI4osFyWhnRAQA=" alt="" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Automobile Parts</h2>
