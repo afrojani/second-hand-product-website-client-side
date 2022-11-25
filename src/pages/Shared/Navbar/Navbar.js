@@ -6,7 +6,7 @@ const Navbar = () => {
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
-        <li><Link to='/blogs'>Blogs</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
     </>
     // const navItems2 = <>
     //     <li><Link to='/'>Home</Link></li>
@@ -16,7 +16,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar sticky bg-red-200">
+        <div className="navbar sticky bg-violet-500">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
