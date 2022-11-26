@@ -68,7 +68,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-                <Link className="btn btn-primary">Register</Link>
+                <Link to='/login' className="btn btn-primary">Log In</Link>
             </div>
         </div>
     );
