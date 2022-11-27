@@ -41,7 +41,8 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
+        const role = form.role.value;
+        console.log(name, photoURL, email, password, role);
 
 
         createUser(email, password)
@@ -103,6 +104,18 @@ const Register = () => {
                             <input type="text" name="password" placeholder="password" className="input input-bordered" required />
 
                         </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Buyer/Seller</span>
+                            </label>
+                            <select name='role' className="select select-bordered w-full" defaultValue={'DEFAULT'}>
+                                <option value="DEFAULT" disabled>Choose an option ...</option>
+                                <option value='buyer'>Buyer</option>
+                                <option value='seller'>Seller</option>
+                            </select>
+                        </div>
+
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Register" />
                             {/* <button className="btn btn-primary">Login</button> */}

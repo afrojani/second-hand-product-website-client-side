@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
-    document.title = "Log in";
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
@@ -26,7 +25,8 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        const role = form.role.value;
+        console.log(email, password, role);
         logIn(email, password)
             .then(result => {
                 const user = result.user;
@@ -76,6 +76,20 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="text" name="password" placeholder="password" className="input input-bordered" />
+
+
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Buyer/Seller</span>
+                                </label>
+                                <select name='role' className="select select-bordered w-full" defaultValue={'DEFAULT'}>
+                                    <option value="DEFAULT" disabled>Choose an option ...</option>
+                                    <option value='buyer'>Buyer</option>
+                                    <option value='seller'>Seller</option>
+                                </select>
+                            </div>
+
                             <label className="label">
                                 <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
