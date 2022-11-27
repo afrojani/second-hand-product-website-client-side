@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -10,7 +11,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    const { logIn, loading } = useContext(AuthContext);
+    const { logIn, loading, providerSignIn } = useContext(AuthContext);
 
     if (loading) {
         return <button type="button" className="bg-indigo-500 ..." disabled>
@@ -39,6 +40,20 @@ const Login = () => {
                 setError(error.message);
             })
     }
+
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerSignIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(error))
+    }
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
@@ -73,6 +88,9 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='p-5'>New to our website? <Link className='text-violet-500 font-bold' to='/register'>Create a new account</Link></p>
+                    <p className='p-5 text-center'>Sign Up using
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary mx-2">Google</button>
+                    </p>
                 </div>
             </div>
         </div>
