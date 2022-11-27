@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from './BookingModal';
 import ProductsCard from './ProductsCard';
 
 
 const AllProducts = () => {
     const allProducts = useLoaderData();
 
+    const [product, setProduct] = useState(null);
+
     return (
-        <div className='grid grid-cols-1 gap-6 my-10'>
+        <div>
+            <div className='grid grid-cols-1 gap-6 my-10'>
+                {
+                    allProducts.map(products => <ProductsCard
+                        key={products._id}
+                        products={products}
+                        setProduct={setProduct}
+                    ></ProductsCard>)
+                }
+            </div>
             {
-                allProducts.map(products => <ProductsCard
-                    key={products._id}
-                    products={products}
-                ></ProductsCard>)
+                product &&
+                <BookingModal
+                    product={product}
+                    setProduct={setProduct}
+                ></BookingModal>
             }
         </div>
     );
