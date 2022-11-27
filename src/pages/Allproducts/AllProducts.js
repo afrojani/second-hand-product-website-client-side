@@ -1,14 +1,18 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import ProductsCard from './ProductsCard';
+
 
 const AllProducts = () => {
     const allProducts = useLoaderData();
 
     return (
-        <div>
-            <h2>all category products</h2>
+        <div className='grid grid-cols-1 gap-6 my-10'>
             {
-                allProducts.map(products => <p>{products.name}</p>)
+                allProducts.map(products => <ProductsCard
+                    key={products._id}
+                    products={products}
+                ></ProductsCard>)
             }
         </div>
     );
