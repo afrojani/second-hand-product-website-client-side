@@ -27,7 +27,11 @@ const Register = () => {
         providerSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
+                const role = 'buyer';
+                const name = user.displayName;
+                const email = user.email;
                 console.log(user);
+                saveUser(name, email, role);
                 navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
@@ -67,6 +71,7 @@ const Register = () => {
             .catch(error => console.log(error));
     }
 
+    // ------save user in database......//
     const saveUser = (name, email, role) => {
         const user = { name, email, role };
         fetch('http://localhost:5000/users', {

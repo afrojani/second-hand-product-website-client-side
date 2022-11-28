@@ -42,17 +42,39 @@ const Login = () => {
     }
 
 
+    // ---------------------google sign in----------
+
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
         providerSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
+                const role = 'buyer';
+                const name = user.displayName;
+                const email = user.email;
                 console.log(user);
+                saveUser(name, email, role);
                 navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
     }
+
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
+    // ------google sign in end--------
 
 
     return (
@@ -99,7 +121,6 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
-                            {/* <button className="btn btn-primary">Login</button> */}
                         </div>
                     </form>
                     <p className='p-5'>New to our website? <Link className='text-violet-500 font-bold' to='/register'>Create a new account</Link></p>
