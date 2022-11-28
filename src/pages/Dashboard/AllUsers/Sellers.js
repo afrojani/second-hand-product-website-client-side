@@ -6,7 +6,7 @@ const Sellers = ({ users, refetch }) => {
     const { role, name, email, _id } = users;
 
     const handleMakeAdmin = id => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(` https://assignment-12-server-car.vercel.app/users/admin/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -23,7 +23,7 @@ const Sellers = ({ users, refetch }) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to remove this product?');
         if (proceed) {
-            fetch(`http://localhost:5000/allusers/${id}`, {
+            fetch(` https://assignment-12-server-car.vercel.app/allusers/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

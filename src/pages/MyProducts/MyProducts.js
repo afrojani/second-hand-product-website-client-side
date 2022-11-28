@@ -9,7 +9,7 @@ const MyProducts = () => {
     const { data: myProducts = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products?email=${user?.email}`);
+            const res = await fetch(` https://assignment-12-server-car.vercel.app/products?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -18,7 +18,7 @@ const MyProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to remove this product?');
         if (proceed) {
-            fetch(`http://localhost:5000/myproducts/${id}`, {
+            fetch(` https://assignment-12-server-car.vercel.app/myproducts/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

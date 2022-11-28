@@ -9,7 +9,7 @@ const DashboardLayout = () => {
     console.log(currentUser);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${user?.email}`)
+        fetch(` https://assignment-12-server-car.vercel.app/user?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setCurrentUser(data))
     }, [user?.email])
