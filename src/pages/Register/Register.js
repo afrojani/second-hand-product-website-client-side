@@ -38,11 +38,10 @@ const Register = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         const role = form.role.value;
-        console.log(name, photoURL, email, password, role);
+        console.log(name, email, password, role);
 
 
         createUser(email, password)
@@ -51,17 +50,16 @@ const Register = () => {
                 console.log(user);
                 form.reset();
                 navigate(from, { replace: true });
-                handleUpdateUserProfile(name, photoURL);
+                handleUpdateUserProfile(name);
             })
             .catch(error => {
                 console.log(error)
             });
     }
 
-    const handleUpdateUserProfile = (name, photoURL) => {
+    const handleUpdateUserProfile = (name) => {
         const profile = {
             displayName: name,
-            photoURL: photoURL
         }
         updateUserProfile(profile)
             .then(() => { })
@@ -84,12 +82,6 @@ const Register = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" name="name" placeholder="Name" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Photo</span>
-                            </label>
-                            <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

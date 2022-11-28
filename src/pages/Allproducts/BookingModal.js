@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const BookingModal = ({ product, setProduct }) => {
-    const { name, resale_price } = product;
+    const { name, resale_price, imagePath } = product;
     const { user } = useContext(AuthContext);
     console.log(user);
 
@@ -19,15 +20,28 @@ const BookingModal = ({ product, setProduct }) => {
             email: user.email,
             itemName: name,
             price: resale_price,
+            imagePath: imagePath,
             phone: phone,
             location: location
         }
 
         console.log(booking);
-        setProduct(null);
 
-
-
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    setProduct(null);
+                    toast.success('Booking Confirmed');
+                }
+            })
     }
 
     return (
@@ -38,8 +52,8 @@ const BookingModal = ({ product, setProduct }) => {
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold m-3">{name}</h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-4'>
-                        <input type="email" value={user.email} disabled className="input input-bordered input-info w-full " />
-                        <input type="text" value={user.displayName} disabled className="input input-bordered input-info w-full " />
+                        <input type="email" value={user?.email} disabled className="input input-bordered input-info w-full " />
+                        <input type="text" value={user?.displayName} disabled className="input input-bordered input-info w-full " />
                         <input type="text" value={name} disabled className="input input-bordered input-info w-full " />
                         <input type="text" value={resale_price} disabled className="input input-bordered input-info w-full " />
 
