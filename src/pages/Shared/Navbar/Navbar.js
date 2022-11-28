@@ -70,15 +70,6 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end">
-                <div>
-                    <div className="dropdown dropdown-hover">
-                        <label tabIndex={0} className="btn m-1">Hover</label>
-                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link>Item 1</Link></li>
-                            <li><Link>Item 2</Link></li>
-                        </ul>
-                    </div>
-                </div>
 
                 {
                     user?.uid ?

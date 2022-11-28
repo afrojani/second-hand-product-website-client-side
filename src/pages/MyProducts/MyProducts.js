@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
 
-    const { newProducts, setNewProducts } = useState([]);
 
     const { data: myProducts = [] } = useQuery({
         queryKey: ['bookings', user?.email],

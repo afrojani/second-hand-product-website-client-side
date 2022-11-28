@@ -25,8 +25,8 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const role = form.role.value;
-        console.log(email, password, role);
+        // const role = form.role.value;
+        console.log(email, password);
         logIn(email, password)
             .then(result => {
                 const user = result.user;
@@ -101,7 +101,7 @@ const Login = () => {
 
 
 
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Buyer/Seller</span>
                                 </label>
@@ -110,7 +110,7 @@ const Login = () => {
                                     <option value='buyer'>Buyer</option>
                                     <option value='seller'>Seller</option>
                                 </select>
-                            </div>
+                            </div> */}
 
                             <label className="label">
                                 <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
