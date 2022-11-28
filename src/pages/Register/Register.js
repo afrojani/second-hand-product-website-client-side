@@ -51,6 +51,7 @@ const Register = () => {
                 form.reset();
                 navigate(from, { replace: true });
                 handleUpdateUserProfile(name);
+                saveUser(name, email, role);
             })
             .catch(error => {
                 console.log(error)
@@ -64,6 +65,21 @@ const Register = () => {
         updateUserProfile(profile)
             .then(() => { })
             .catch(error => console.log(error));
+    }
+
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
 
     return (
@@ -101,8 +117,8 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Buyer/Seller</span>
                             </label>
-                            <select name='role' className="select select-bordered w-full" defaultValue={'DEFAULT'}>
-                                <option value="DEFAULT" disabled>Choose an option ...</option>
+                            <select name='role' className="select select-bordered w-full" defaultValue={'buyer'}>
+                                {/* <option value="DEFAULT" disabled>Choose an option ...</option> */}
                                 <option value='buyer'>Buyer</option>
                                 <option value='seller'>Seller</option>
                             </select>
