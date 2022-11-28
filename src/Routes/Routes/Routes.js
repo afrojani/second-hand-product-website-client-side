@@ -1,14 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import AddProduct from "../../pages/AddProduct/AddProduct";
 import AllProducts from "../../pages/Allproducts/AllProducts";
 import Blog from "../../pages/Blog/Blog";
 import AllBuyers from "../../pages/Dashboard/AllUsers/AllBuyers";
 import AllSellers from "../../pages/Dashboard/AllUsers/AllSellers";
+import AllUsers from "../../pages/Dashboard/AllUsers/AllUsers";
 // import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import Myorders from "../../pages/Dashboard/MyOrders/Myorders";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
+import MyProducts from "../../pages/MyProducts/MyProducts";
 import Register from "../../pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -49,7 +52,7 @@ const router = createBrowserRouter([
             //     element: <Dashboard></Dashboard>
             // },
             {
-                path: '/dashboard',
+                path: '/dashboard/myorders',
                 element: <Myorders></Myorders>
             },
             {
@@ -59,6 +62,18 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/sellers',
                 element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/users',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/myproducts',
+                element: <MyProducts></MyProducts>
             },
         ]
     },

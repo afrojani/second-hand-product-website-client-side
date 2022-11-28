@@ -1,6 +1,7 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
-const Buyers = ({ users }) => {
+const Buyers = ({ users, refetch }) => {
 
     const { role, name, email, _id } = users;
 
@@ -11,6 +12,10 @@ const Buyers = ({ users }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success('Admin Made Successfully');
+                    refetch();
+                }
             })
     }
 

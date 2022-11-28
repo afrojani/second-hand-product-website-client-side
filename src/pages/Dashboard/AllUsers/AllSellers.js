@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import Sellers from './Sellers';
 
 const AllSellers = () => {
-    const { data: allUsers = [] } = useQuery({
+    const { data: allUsers = [], refetch } = useQuery({
         queryKey: ['allusers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/allusers');
@@ -19,6 +19,7 @@ const AllSellers = () => {
                     allUsers.map(users => <Sellers
                         key={users._id}
                         users={users}
+                        refetch={refetch}
                     ></Sellers>)
                 }
             </div>
