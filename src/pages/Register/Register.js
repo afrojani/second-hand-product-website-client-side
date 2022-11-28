@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-    document.title = "Sign Up";
 
     const { createUser, updateUserProfile, providerSignIn, loading } = useContext(AuthContext);
 
@@ -29,6 +28,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
     }

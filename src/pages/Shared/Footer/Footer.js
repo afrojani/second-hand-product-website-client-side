@@ -3,7 +3,7 @@ import logo1 from '../../../images/android-chrome-192x192.png';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-sky-300">
+        <footer className="footer footer-center p-10 bg-gradient-to-r from-sky-500 to-indigo-500">
             <div>
                 <img className='w-16 h-12' src={logo1} alt="" srcSet="" />
                 <p className="font-bold">
