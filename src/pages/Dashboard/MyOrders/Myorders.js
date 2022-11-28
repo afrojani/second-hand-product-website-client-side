@@ -26,7 +26,7 @@ const Myorders = () => {
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">{myOrder.itemName}</h2>
-                            <p>{myOrder.price}</p>
+                            <p>Price: {myOrder.price}</p>
                             <div className="card-actions">
                                 <button className="btn btn-primary">Pay Now</button>
                             </div>
